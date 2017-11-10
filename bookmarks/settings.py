@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'account',
     'django.contrib.admin',
+    'social.apps.django_app.default',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -118,3 +119,14 @@ EMAIL_HOST_USER = 'asifa.packtpub@gmail.com'
 EMAIL_HOST_PASSWORD = 'AA@PP78832743'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', #default ModelBackend
+    'account.authentication.EmailAuthBackend', #custom EmailAuthBackend
+
+    'social.backends.facebook.FacebookOAuth2',
+)
+
+#facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '1692150257522169'
+SOCIAL_AUTH_FACEBOOK_SECRET = '5aaaab6cf55ad86402ad41f6de003f0c'
